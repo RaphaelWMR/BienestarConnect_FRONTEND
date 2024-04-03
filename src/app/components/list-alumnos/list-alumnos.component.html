@@ -24,7 +24,7 @@
                 <td>{{alumno.alumno_telefono}}</td>
                 <td>{{alumno.alumno_correoElectronico}}</td>
                 <td>
-                    <button (click)="updateAlumno(alumno.alumno_id)" type="button"
+                    <button (click)="updateAlumno(alumno.alumno_id || 0)" type="button"
                         class="btn btn-warning btn-sm">Editar</button>
                     <button type="button" class="btn btn-danger btn-sm ms-2">Eliminar</button>
                 </td>

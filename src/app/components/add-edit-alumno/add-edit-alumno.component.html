@@ -1,1 +1,58 @@
-<p>add-edit-alumno works!</p>
+<div class="row mt-1">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card text-white bg-primary mb-3" style="max-inline-size: 25rem;">
+            <div class="card-header text-center">Agregar alumno</div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="addProduct()">
+                    <div>
+                        <label for="exampleInputEmail1" class="form-label mt-4">Primer Apellido</label>
+                        <input formControlName="alumno_primerApellido" type="text" class="form-control"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                    </div>
+                    <div>
+                        <label for="exampleInputEmail1" class="form-label mt-4">Segundo Apellido</label>
+                        <input formControlName="alumno_segundoApellido" type="text" class="form-control"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                    </div>
+                    <div>
+                        <label for="exampleInputEmail1" class="form-label mt-4">Nombres</label>
+                        <input formControlName="alumno_nombres" type="text" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="">
+                    </div>
+                    <div>
+                        <label for="exampleInputEmail1" class="form-label mt-4">DNI</label>
+                        <input formControlName="alumno_dni" type="text" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="">
+                    </div>
+                    <div>
+                        <label for="exampleInputEmail1" class="form-label mt-4">Código</label>
+                        <input formControlName="alumno_codigo" type="text" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="">
+                    </div>
+                    <div>
+                        <label for="exampleInputEmail1" class="form-label mt-4">Teléfono</label>
+                        <input formControlName="alumno_telefono" type="text" class="form-control"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                    </div>
+                    <div>
+                        <label for="exampleInputEmail1" class="form-label mt-4">Correo Electrónico</label>
+                        <input formControlName="alumno_correoElectronico" type="text" class="form-control"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                    </div>
+                    <div class="row mt-2 text-center">
+                        <div class="col-lg-6">
+                            <button type="submit" class="btn btn-success">Aceptar</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button (click)="cancel()" type="button" class="btn btn-danger">Cancelar</button>
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

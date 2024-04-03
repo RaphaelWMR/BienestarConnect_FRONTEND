@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Alumno } from '../../interfaces/alumno';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AlumnoService } from '../../services/alumno.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -40,16 +42,23 @@ export class ListAlumnosComponent {
       eap_id: 1
     }
   ]
-  constructor(private router: Router) {
+  constructor(private router: Router/*, private alumnoService: AlumnoService*/) {
 
   }
   ngOnInit(): void {
 
   }
+
   addAlumno() {
     this.router.navigate(['/add']);
   }
   updateAlumno(id: number) {
     this.router.navigate(['/edit', id]);
   }
+  /*
+    getListAlumnos() {
+      this._alumnoService.getListAlumnos().subscribe((data) => {
+        console.log(data);
+      })
+    }*/
 }

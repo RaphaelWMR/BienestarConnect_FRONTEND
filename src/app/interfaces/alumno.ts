@@ -1,5 +1,5 @@
 export interface Alumno {
-    alumno_id: number,
+    alumno_id?: number,
     alumno_primerApellido: string,
     alumno_segundoApellido: string,
     alumno_nombres: string,
