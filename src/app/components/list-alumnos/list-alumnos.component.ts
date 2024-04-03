@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Alumno } from '../../interfaces/alumno';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class ListAlumnosComponent {
       eap_id: 1
     },
     {
-      alumno_id: 1,
+      alumno_id: 2,
       alumno_primerApellido: 'Escalante',
       alumno_segundoApellido: 'Flores',
       alumno_nombres: 'Eduardo',
@@ -39,10 +40,16 @@ export class ListAlumnosComponent {
       eap_id: 1
     }
   ]
-  constructor() {
+  constructor(private router: Router) {
 
   }
   ngOnInit(): void {
 
+  }
+  addAlumno() {
+    this.router.navigate(['/add']);
+  }
+  updateAlumno(id: number) {
+    this.router.navigate(['/edit', id]);
   }
 }

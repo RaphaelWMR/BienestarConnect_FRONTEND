@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterModule } from '@angular/router';
 import { ListAlumnosComponent } from './list-alumnos.component';
 
 describe('ListAlumnosComponent', () => {
@@ -10,8 +10,8 @@ describe('ListAlumnosComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ListAlumnosComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(ListAlumnosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
