@@ -14,10 +14,14 @@ export class AlumnoService {
 
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint;
-    this.myApiUrl = 'api/alumnos';
+    this.myApiUrl = 'api/alumnos/';
   }
 
   getListAlumnos(): Observable<Alumno[]> {
-    return this.http.get<Alumno[]>(this.myAppUrl + this.myApiUrl);
+    return this.http.get<Alumno[]>(`${this.myAppUrl}${this.myApiUrl}`);
+  }
+
+  deleteAlumno(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.myAppUrl}${this.myApiUrl}${id}`);
   }
 }

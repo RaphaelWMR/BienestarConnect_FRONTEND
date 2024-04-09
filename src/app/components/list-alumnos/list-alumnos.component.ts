@@ -1,11 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Alumno } from '../../interfaces/alumno';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AlumnoService } from '../../services/alumno.service';
-
-
 @Component({
   selector: 'app-list-alumnos',
   standalone: true,
@@ -32,8 +30,14 @@ export class ListAlumnosComponent {
   }
 
   getListAlumnos() {
-    this._alumnoService.getListAlumnos().subscribe((data) => {
+    this._alumnoService.getListAlumnos().subscribe((data: Alumno[]) => {
       this.listAlumnos = data;
+    })
+  }
+
+  deleteAlumno(id: number) {
+    this._alumnoService.deleteAlumno(id).subscribe(() => {
+      this.getListAlumnos();
     })
   }
 }
