@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsMo
 
 import { Router } from '@angular/router';
 import { Alumno } from '../../interfaces/alumno';
+import { AlumnoService } from '../../services/alumno.service';
 
 @Component({
   selector: 'app-add-edit-alumno',
@@ -14,7 +15,7 @@ import { Alumno } from '../../interfaces/alumno';
 })
 export class AddEditAlumnoComponent {
   form: FormGroup;
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder, private _alumnoService: AlumnoService) {
     this.form = this.fb.group({
       alumno_primerApellido: ['', Validators.required],
       alumno_segundoApellido: ['', Validators.required],
@@ -43,7 +44,11 @@ export class AddEditAlumnoComponent {
       alumno_fechaNacimiento: new Date("2000-01-01"),
       eap_id: 0
     }
-    console.log(alumno);
+    this._alumnoService.saveAlumno(alumno).subscribe(() => {
+      console.log('Alumno agregado');
+      this.router.navigate(['/']);
+      
+    });
   }
 }
 

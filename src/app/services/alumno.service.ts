@@ -24,4 +24,7 @@ export class AlumnoService {
   deleteAlumno(id: number): Observable<void> {
     return this.http.delete<void>(`${this.myAppUrl}${this.myApiUrl}${id}`);
   }
+  saveAlumno(alumno: Alumno): Observable<void> {
+    return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}`, alumno);
+  }
 }
