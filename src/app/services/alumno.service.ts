@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, retry } from 'rxjs';
 import { Alumno } from '../interfaces/alumno';
 import { environment } from '../../environments/environment.development';
 
@@ -26,5 +26,13 @@ export class AlumnoService {
   }
   saveAlumno(alumno: Alumno): Observable<void> {
     return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}`, alumno);
+  }
+
+  getAlumno(id: Number): Observable<Alumno> {
+    return this.http.get<Alumno>(`${this.myAppUrl}${this.myApiUrl}${id}`);
+  }
+
+  updateAlumno(id: number, alumno: Alumno): Observable<void> {
+    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}${id}`, alumno);
   }
 }
