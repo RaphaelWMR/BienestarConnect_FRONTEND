@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +8,24 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
+
+
 export class NavbarComponent {
+
+  isActive: string = ''; // To store the currently active route
+
   constructor(private router: Router) {
 
   }
+
+  ngOnInit() {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        this.isActive = event.url;
+      }
+    });
+  }
   showAlumnos() {
-    this.router.navigate(['/alumnos/']);
+    this.router.navigate(['/alumnos']);
   }
 }
