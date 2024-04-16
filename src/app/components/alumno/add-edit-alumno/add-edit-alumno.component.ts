@@ -45,7 +45,7 @@ export class AddEditAlumnoComponent {
     this.router.navigate(['/']);
   }
 
-  addProduct() {
+  addAlumno() {
     const alumno: Alumno = {
       alumno_primerApellido: this.form.value.alumno_primerApellido,
       alumno_segundoApellido: this.form.value.alumno_segundoApellido,

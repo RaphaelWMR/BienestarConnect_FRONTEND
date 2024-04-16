@@ -9,7 +9,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 const routes: Routes = [
   // Home
   { path: '', component: HomeComponent },
-
+  { path: 'home', component: HomeComponent },
   // Alumnos
   { path: 'alumnos', component: ListAlumnosComponent },
   { path: 'alumnos/add', component: AddEditAlumnoComponent },

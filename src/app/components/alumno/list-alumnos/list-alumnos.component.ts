@@ -23,10 +23,10 @@ export class ListAlumnosComponent {
   }
 
   addAlumno() {
-    this.router.navigate(['/add']);
+    this.router.navigate(['/alumnos/add']);
   }
   updateAlumno(id: number) {
-    this.router.navigate(['/edit', id]);
+    this.router.navigate(['/alumnos/edit', id]);
   }
 
   getListAlumnos() {
