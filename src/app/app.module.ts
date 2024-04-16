@@ -15,6 +15,7 @@ import { ListAlumnosComponent } from './components/alumno/list-alumnos/list-alum
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { ListCitasComponent } from './components/cita/list-citas/list-citas.component';
+import { AddEditCitaComponent } from './components/cita/add-edit-cita/add-edit-cita.component';
 
 
 
@@ -24,7 +25,8 @@ import { ListCitasComponent } from './components/cita/list-citas/list-citas.comp
     AppComponent,
     ProgressBarComponent,
     HomeComponent,
-    ListCitasComponent
+    ListCitasComponent,
+    AddEditCitaComponent
   ],
   imports: [
     ListAlumnosComponent,

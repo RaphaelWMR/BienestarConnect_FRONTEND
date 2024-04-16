@@ -3,7 +3,7 @@ import { Component, NgModule } from '@angular/core';
 import { Alumno } from '../../../interfaces/alumno';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AlumnoService } from '../../../services/alumno.service';
+import { AlumnoService } from '../../../services/alumno/alumno.service';
 @Component({
   selector: 'app-list-alumnos',
   standalone: true,

@@ -1,1 +1,40 @@
-<p>list-citas works!</p>
+<div class="container">
+    <div class="tittle">
+        <h4>Citas registradas</h4>
+        <button type="button" (click)="addCita()" class="btn btn-primary">Nueva Cita</button>
+    </div>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">Cita</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Alumno </th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Modalidad</th>
+                <th scope="col">Confirmación</th>
+                <th scope="col">Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cita of listCitas">
+                <td>{{cita.cita_id}}</td>
+                <td>{{cita.alumno?.alumno_codigo}}</td>
+                <td>{{cita.alumno?.alumno_primerApellido}} {{cita.alumno?.alumno_segundoApellido}},
+                    {{cita.alumno?.alumno_nombres}}</td>
+                <td>{{cita.cita_fecha}}</td>
+                <td>{{cita.cita_hora}}</td>
+                <td>{{cita.citamodalidad?.citaModalidad_nombre}}</td>
+                <td>{{cita.citaconfirmacion?.citaConfirmacion_nombre}}</td>
+                <td>
+                    <button (click)="updateCita(cita.cita_id|| 0)" type="button"
+                        class="btn btn-warning btn-sm">Editar</button>
+                    <button (click)="deleteCita(cita.cita_id!)" type="button"
+                        class="btn btn-danger btn-sm ms-2">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsMo
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { Alumno } from '../../../interfaces/alumno';
-import { AlumnoService } from '../../../services/alumno.service';
+import { AlumnoService } from '../../../services/alumno/alumno.service';
 
 @Component({
   selector: 'app-add-edit-alumno',

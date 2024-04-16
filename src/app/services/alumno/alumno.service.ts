@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, retry } from 'rxjs';
-import { Alumno } from '../interfaces/alumno';
-import { environment } from '../../environments/environment.development';
+import { Alumno } from '../../interfaces/alumno';
+import { environment } from '../../../environments/environment.development';
 
 
 @Injectable({
