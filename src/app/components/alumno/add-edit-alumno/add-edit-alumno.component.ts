@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { Alumno } from '../../interfaces/alumno';
-import { AlumnoService } from '../../services/alumno.service';
+import { Alumno } from '../../../interfaces/alumno';
+import { AlumnoService } from '../../../services/alumno.service';
 
 @Component({
   selector: 'app-add-edit-alumno',

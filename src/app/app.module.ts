@@ -10,9 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AddEditAlumnoComponent } from './components/add-edit-alumno/add-edit-alumno.component';
-import { ListAlumnosComponent } from './components/list-alumnos/list-alumnos.component';
+import { AddEditAlumnoComponent } from './components/alumno/add-edit-alumno/add-edit-alumno.component';
+import { ListAlumnosComponent } from './components/alumno/list-alumnos/list-alumnos.component';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { HomeComponent } from './components/pages/home/home.component';
 
 
 
@@ -20,7 +21,8 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
 @NgModule({
   declarations: [
     AppComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    HomeComponent
   ],
   imports: [
     ListAlumnosComponent,
