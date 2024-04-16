@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListAlumnosComponent } from './components/alumno/list-alumnos/list-alumnos.component';
 import { AddEditAlumnoComponent } from './components/alumno/add-edit-alumno/add-edit-alumno.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { ListCitasComponent } from './components/cita/list-citas/list-citas.component';
 
 const routes: Routes = [
   // Home
@@ -14,7 +15,10 @@ const routes: Routes = [
   { path: 'alumnos', component: ListAlumnosComponent },
   { path: 'alumnos/add', component: AddEditAlumnoComponent },
   { path: 'alumnos/edit/:id', component: AddEditAlumnoComponent },
-
+  // Citas
+  { path: 'citas', component: ListCitasComponent },
+  { path: 'citas/add', component: ListCitasComponent },
+  { path: 'citas/edit/:id', component: ListCitasComponent },
   // Pages
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

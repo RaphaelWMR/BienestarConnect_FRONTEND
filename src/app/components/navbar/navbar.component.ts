@@ -28,4 +28,8 @@ export class NavbarComponent {
   showAlumnos() {
     this.router.navigate(['/alumnos']);
   }
+
+  showCitas() {
+    this.router.navigate(['/citas']);
+  }
 }
