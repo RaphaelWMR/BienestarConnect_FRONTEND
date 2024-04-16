@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Cita } from '../../../interfaces/cita';
 import { CitaService } from '../../../services/cita/cita.service';
@@ -10,10 +10,13 @@ import { CitaService } from '../../../services/cita/cita.service';
   styleUrl: './list-citas.component.css'
 })
 export class ListCitasComponent {
+
+
   listCitas: Cita[] = [
   ]
-  constructor(private router: Router, private _citaService: CitaService) {
-
+  constructor(private router: Router,
+    private _citaService: CitaService
+  ) {
   }
   ngOnInit(): void {
     this.getListCitas();
@@ -25,7 +28,7 @@ export class ListCitasComponent {
   getListCitas() {
     this._citaService.getListCitas().subscribe((data: Cita[]) => {
       this.listCitas = data;
-      console.log(this.listCitas );
+      console.log(this.listCitas);
     })
   }
   updateCita(id: number) {

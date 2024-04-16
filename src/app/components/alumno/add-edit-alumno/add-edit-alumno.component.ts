@@ -17,9 +17,12 @@ export class AddEditAlumnoComponent {
   form: FormGroup;
   id: number;
   operacion: string = 'Agregar ';
-  constructor(private router: Router, private fb: FormBuilder,
-    private _alumnoService: AlumnoService,
-    private aRouter: ActivatedRoute) {
+  constructor
+    (private router: Router,
+      private fb: FormBuilder,
+      private _alumnoService: AlumnoService,
+      private aRouter: ActivatedRoute
+    ) {
     this.form = this.fb.group({
       alumno_primerApellido: ['', Validators.required],
       alumno_segundoApellido: ['', Validators.required],
@@ -28,7 +31,6 @@ export class AddEditAlumnoComponent {
       alumno_codigo: ['', Validators.required],
       alumno_telefono: ['', Validators.required],
       alumno_correoElectronico: ['', Validators.required],
-
     });
     this.id = Number(aRouter.snapshot.paramMap.get('id'));
   }
@@ -41,9 +43,6 @@ export class AddEditAlumnoComponent {
     }
   }
 
-  cancel() {
-    this.router.navigate(['/']);
-  }
 
   addAlumno() {
     const alumno: Alumno = {
