@@ -32,7 +32,6 @@ export class ListAlumnosComponent {
   getListAlumnos() {
     this._alumnoService.getListAlumnos().subscribe((data: Alumno[]) => {
       this.listAlumnos = data;
-      return this.listAlumnos;
     });
   }
 

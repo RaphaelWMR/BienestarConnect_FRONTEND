@@ -5,41 +5,40 @@
             <div class="card-body">
                 <form [formGroup]="form" (ngSubmit)="addCita()">
                     <div>
-                        <label for="exampleInputEmail1" class="form-label mt-4">Alumno</label>
-                        <select class="form-select" id="exampleSelect1">
+                        <label for="inputDefault" class="form-label mt-4">Alumno</label>
+                        <select class="form-select" id="exampleSelect1" formControlName="alumno_id">
                             <option *ngFor="let alumno of listAlumnos" value="{{alumno.alumno_id}}">
                                 {{alumno.alumno_codigo}} {{alumno.alumno_primerApellido}} {{alumno.alumno_nombres}}
                             </option>
                         </select>
                     </div>
                     <div>
-                        <label for="exampleInputEmail1" class="form-label mt-4">Fecha</label>
-                        <input formControlName="date" type="date" class="form-control" id="start" name="trip-start"
-                            value="2024-01-01" min="2024-01-01" max="2050-12-31" />
+                        <label for="inputDefault" class="form-label mt-4">Fecha</label>
+                        <input formControlName="cita_fecha" type="date" class="form-control" id="start"
+                            name="trip-start" value="2024-01-01" min="2024-01-01" max="2050-12-31" />
                     </div>
                     <div>
-                        <label for="exampleInputEmail1" class="form-label mt-4">Hora</label>
-                        <input formControlName="time" type="time" class="form-control" id="appt" name="appt" min="08:00"
-                            max="17:00" value="08:00" />
+                        <label for="" class="form-label mt-4">Hora</label>
+                        <input formControlName="cita_hora" type="time" class="form-control" id="appt" name="appt"
+                            min="08:00" max="17:00" value="08:00" />
                     </div>
                     <div>
-                        <label for="exampleInputEmail1" class="form-label mt-4">Descripción</label>
+                        <label for="inputDefault" class="form-label mt-4">Descripción</label>
                         <input formControlName="cita_descripcion" type="text" class="form-control" id="input" rows="3"
                             placeholder="">
                     </div>
                     <div>
-                        <label for="exampleInputEmail1" class="form-label mt-4">Modalidad</label>
-                        <select class="form-select" id="exampleSelect1">
-                            <option *ngFor="let modalidad of listModalidades" value="{{modalidad.citaModalidad_id}}">
+                        <label for="inputDefault" class="form-label mt-4">Modalidad</label>
+                        <select class="form-select" id="exampleSelect2" formControlName="cita_modalidad">
+                            <option *ngFor="let modalidad of listModalidades" [ngValue]="modalidad.citaModalidad_id">
                                 {{modalidad.citaModalidad_nombre}}
                             </option>
                         </select>
-
                     </div>
                     <div>
-                        <label for="exampleInputEmail1" class="form-label mt-4">Tipo</label>
-                        <select class="form-select" id="exampleSelect1">
-                            <option *ngFor="let tipo of listTipo" value="{{tipo.citaTipo_id}}">
+                        <label for="inputDefault" class="form-label mt-4">Tipo</label>
+                        <select class="form-select" id="exampleSelect3" formControlName="cita_tipo">
+                            <option *ngFor="let tipo of listTipo" [ngValue]="tipo.citaTipo_id">
                                 {{tipo.CitaTipo_nombre}}
                             </option>
                         </select>
@@ -51,9 +50,7 @@
                         <div class="col-lg-6">
                             <a class="btn btn-danger" href="/citas">Cancelar</a>
                         </div>
-
                     </div>
-
 
                 </form>
 

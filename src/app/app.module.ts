@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/partials/navbar/navbar.component';
 import { AddEditAlumnoComponent } from './components/alumno/add-edit-alumno/add-edit-alumno.component';
 import { ListAlumnosComponent } from './components/alumno/list-alumnos/list-alumnos.component';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
@@ -18,6 +18,7 @@ import { ListCitasComponent } from './components/cita/list-citas/list-citas.comp
 import { AddEditCitaComponent } from './components/cita/add-edit-cita/add-edit-cita.component';
 import { BsDatepickerConfig, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/partials/footer/footer.component';
 
 
 
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     ProgressBarComponent,
     HomeComponent,
     ListCitasComponent,
-    AddEditCitaComponent
+    AddEditCitaComponent,
+    FooterComponent
   ],
   imports: [
     ListAlumnosComponent,

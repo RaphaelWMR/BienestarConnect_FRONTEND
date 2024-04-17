@@ -10,9 +10,9 @@ export interface Cita {
     cita_fecha: Date,
     cita_hora: string,
     cita_descripcion: string,
-    citaModalidad_id: number,
+    citamodalidad_id: number,
     citamodalidad?: CitaModalidad,
-    citaTipo_id: number,
+    citatipo_id: number,
     citatipo?: CitaTipo,
     citaconfirmacion_id: number,
     citaconfirmacion?: CitaConfirmacion

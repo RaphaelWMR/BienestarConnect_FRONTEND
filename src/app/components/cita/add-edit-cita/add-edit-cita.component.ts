@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ListAlumnosComponent } from '../../alumno/list-alumnos/list-alumnos.component';
 import { AlumnoService } from '../../../services/alumno/alumno.service';
 import { Alumno } from '../../../interfaces/alumno';
@@ -10,6 +10,8 @@ import { CitaConfirmacionService } from '../../../services/cita/cita-confirmacio
 import { CitaTipoService } from '../../../services/cita/cita-tipo.service';
 import { CitaConfirmacion } from '../../../interfaces/cita-confirmacion';
 import { CitaTipo } from '../../../interfaces/cita-tipo';
+import { Cita } from '../../../interfaces/cita';
+import { CitaService } from '../../../services/cita/cita.service';
 
 @Component({
   selector: 'app-add-edit-cita',
@@ -26,26 +28,32 @@ export class AddEditCitaComponent {
   listConfirmacion: CitaConfirmacion[] = [];
   listTipo: CitaTipo[] = [];
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private aRouter: ActivatedRoute,
     private _alumnoService: AlumnoService,
+    private _citaService: CitaService,
     private _modalidadService: CitaModalidadService,
     private _confirmacionService: CitaConfirmacionService,
     private _tipoService: CitaTipoService
   ) {
     this.form = this.fb.group({
-      alumno_primerApellido: ['', Validators.required],
-      alumno_segundoApellido: ['', Validators.required],
-      alumno_nombres: ['', Validators.required],
-      alumno_dni: ['', Validators.required],
-      alumno_codigo: ['', Validators.required],
-      alumno_telefono: ['', Validators.required],
-      alumno_correoElectronico: ['', Validators.required],
-
+      alumno_id: ['', Validators.required],
+      cita_fecha: ['', Validators.required],
+      cita_hora: ['', Validators.required],
+      cita_descripcion: ['', Validators.required],
+      citamodalidad_id: ['', Validators.required],
+      citatipo_id: ['', Validators.required],
+      citaconfirmacion_id: ['', Validators.required],
     });
     this.id = Number(aRouter.snapshot.paramMap.get('id'));
   }
   ngOnInit(): void {
+    if (this.id != 0) {
+      // Edit
+      this.operacion = 'Editar ';
+      this.getCita(this.id);
+    }
     this.getListAlumnos();
     this.getListModalidades();
     this.getListTipos();
@@ -71,8 +79,36 @@ export class AddEditCitaComponent {
   }
 
   addCita() {
+    const cita: Cita = {
+      alumno_id: this.form.value.alumno_id,
+      cita_fecha: this.form.value.cita_fecha,
+      cita_hora: this.form.value.cita_hora,
+      cita_descripcion: this.form.value.cita_descripcion,
+      citamodalidad_id: this.form.value.cita_modalidad,
+      citatipo_id: this.form.value.cita_tipo,
+      citaconfirmacion_id: 1
+    }
+    if (this.id !== 0) {
+      //editar
+      cita.cita_id = this.id;
+      this._citaService.updateCita(this.id, cita).subscribe(() => {
+        console.log('Cita Actualizada');
+        this.router.navigate(['/']);
+      })
+    } else {
+      //agregar
+      this._citaService.saveCita(cita).subscribe(() => {
+        console.log('Cita agregada');
+        this.router.navigate(['/citas']);
+      })
+
+    };
+  }
+
+  getCita(id: Number) {
 
   }
+
   cancel() {
 
   }

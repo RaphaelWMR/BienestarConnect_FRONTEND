@@ -69,7 +69,7 @@ export class AddEditAlumnoComponent {
       //agregar
       this._alumnoService.saveAlumno(alumno).subscribe(() => {
         console.log('Alumno agregado');
-        this.router.navigate(['/']);
+        this.router.navigate(['/alumnos']);
       })
 
     };
