@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AddEditCitaComponent } from './add-edit-cita.component';
 
 describe('AddEditCitaComponent', () => {
@@ -10,8 +9,8 @@ describe('AddEditCitaComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [AddEditCitaComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(AddEditCitaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

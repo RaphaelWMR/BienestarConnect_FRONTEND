@@ -16,7 +16,8 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
 import { HomeComponent } from './components/pages/home/home.component';
 import { ListCitasComponent } from './components/cita/list-citas/list-citas.component';
 import { AddEditCitaComponent } from './components/cita/add-edit-cita/add-edit-cita.component';
-
+import { BsDatepickerConfig, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -36,17 +37,20 @@ import { AddEditCitaComponent } from './components/cita/add-edit-cita/add-edit-c
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule, // required animations module
+    BrowserAnimationsModule, // required animations module,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right'
     }), // ToastrModule added
+    FormsModule,
+    BsDatepickerModule.forRoot()
   ],
   exports: [
 
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    BsDatepickerConfig
   ],
   bootstrap: [AppComponent]
 })

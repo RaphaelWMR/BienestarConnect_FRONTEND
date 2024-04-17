@@ -6,42 +6,43 @@
                 <form [formGroup]="form" (ngSubmit)="addCita()">
                     <div>
                         <label for="exampleInputEmail1" class="form-label mt-4">Alumno</label>
-                        <input formControlName="alumno_primerApellido" type="text" class="form-control"
-                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-                        <label for="exampleSelect1" class="form-label mt-4">Example select</label>
                         <select class="form-select" id="exampleSelect1">
-                            <option *ngFor="let alumno of listAlumnos" value=""></option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option *ngFor="let alumno of listAlumnos" value="{{alumno.alumno_id}}">
+                                {{alumno.alumno_codigo}} {{alumno.alumno_primerApellido}} {{alumno.alumno_nombres}}
+                            </option>
                         </select>
                     </div>
                     <div>
                         <label for="exampleInputEmail1" class="form-label mt-4">Fecha</label>
-                        <input formControlName="alumno_segundoApellido" type="text" class="form-control"
-                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                        <input formControlName="date" type="date" class="form-control" id="start" name="trip-start"
+                            value="2024-01-01" min="2024-01-01" max="2050-12-31" />
                     </div>
                     <div>
                         <label for="exampleInputEmail1" class="form-label mt-4">Hora</label>
-                        <input formControlName="alumno_nombres" type="text" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="">
+                        <input formControlName="time" type="time" class="form-control" id="appt" name="appt" min="08:00"
+                            max="17:00" value="08:00" />
                     </div>
                     <div>
                         <label for="exampleInputEmail1" class="form-label mt-4">Descripción</label>
-                        <input formControlName="alumno_dni" type="text" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="">
+                        <input formControlName="cita_descripcion" type="text" class="form-control" id="input" rows="3"
+                            placeholder="">
                     </div>
                     <div>
                         <label for="exampleInputEmail1" class="form-label mt-4">Modalidad</label>
-                        <input formControlName="alumno_codigo" type="text" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="">
+                        <select class="form-select" id="exampleSelect1">
+                            <option *ngFor="let modalidad of listModalidades" value="{{modalidad.citaModalidad_id}}">
+                                {{modalidad.citaModalidad_nombre}}
+                            </option>
+                        </select>
+
                     </div>
                     <div>
                         <label for="exampleInputEmail1" class="form-label mt-4">Tipo</label>
-                        <input formControlName="alumno_telefono" type="text" class="form-control"
-                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                        <select class="form-select" id="exampleSelect1">
+                            <option *ngFor="let tipo of listTipo" value="{{tipo.citaTipo_id}}">
+                                {{tipo.CitaTipo_nombre}}
+                            </option>
+                        </select>
                     </div>
                     <div class="row mt-2 text-center">
                         <div class="col-lg-6">
