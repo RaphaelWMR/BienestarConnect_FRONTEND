@@ -19,6 +19,7 @@ import { AddEditCitaComponent } from './components/cita/add-edit-cita/add-edit-c
 import { BsDatepickerConfig, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/partials/footer/footer.component';
+import { SidebarComponent } from './components/partials/sidebar/sidebar.component';
 
 
 
@@ -29,7 +30,8 @@ import { FooterComponent } from './components/partials/footer/footer.component';
     HomeComponent,
     ListCitasComponent,
     AddEditCitaComponent,
-    FooterComponent
+    FooterComponent,
+    SidebarComponent
   ],
   imports: [
     ListAlumnosComponent,
