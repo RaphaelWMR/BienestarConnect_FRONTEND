@@ -12,6 +12,8 @@ import { CitaConfirmacion } from '../../../interfaces/cita-confirmacion';
 import { CitaTipo } from '../../../interfaces/cita-tipo';
 import { Cita } from '../../../interfaces/cita';
 import { CitaService } from '../../../services/cita/cita.service';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-cita',
