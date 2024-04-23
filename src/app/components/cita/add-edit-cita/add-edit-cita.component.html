@@ -29,16 +29,16 @@
                     </div>
                     <div>
                         <label for="inputDefault" class="form-label mt-4">Modalidad</label>
-                        <select class="form-select" id="exampleSelect2" formControlName="cita_modalidad">
-                            <option *ngFor="let modalidad of listModalidades" [ngValue]="modalidad.citaModalidad_id">
+                        <select class="form-select" id="exampleSelect1" formControlName="citamodalidad_id">
+                            <option *ngFor="let modalidad of listModalidades" value="{{modalidad.citaModalidad_id}}">
                                 {{modalidad.citaModalidad_nombre}}
                             </option>
                         </select>
                     </div>
                     <div>
                         <label for="inputDefault" class="form-label mt-4">Tipo</label>
-                        <select class="form-select" id="exampleSelect3" formControlName="cita_tipo">
-                            <option *ngFor="let tipo of listTipo" [ngValue]="tipo.citaTipo_id">
+                        <select class="form-select" id="exampleSelect3" formControlName="citatipo_id">
+                            <option *ngFor="let tipo of listTipo" value="{{tipo.citaTipo_id}}">
                                 {{tipo.CitaTipo_nombre}}
                             </option>
                         </select>

@@ -84,10 +84,11 @@ export class AddEditCitaComponent {
       cita_fecha: this.form.value.cita_fecha,
       cita_hora: this.form.value.cita_hora,
       cita_descripcion: this.form.value.cita_descripcion,
-      citamodalidad_id: this.form.value.cita_modalidad,
-      citatipo_id: this.form.value.cita_tipo,
+      citaModalidad_id: this.form.value.citamodalidad_id,
+      citaTipo_id: this.form.value.citatipo_id,
       citaconfirmacion_id: 1
     }
+    console.log(cita);
     if (this.id !== 0) {
       //editar
       cita.cita_id = this.id;
