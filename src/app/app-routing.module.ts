@@ -19,7 +19,7 @@ const routes: Routes = [
   // Citas
   { path: 'citas', component: ListCitasComponent },
   { path: 'citas/add', component: AddEditCitaComponent },
-  { path: 'citas/edit/:id', component: ListCitasComponent },
+  { path: 'citas/edit/:id', component: AddEditCitaComponent },
   // Pages
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

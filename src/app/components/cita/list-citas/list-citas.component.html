@@ -1,7 +1,7 @@
 <div class="container">
     <div class="tittle">
         <h4>Citas registradas</h4>
-        <a  class="btn btn-primary" href="/citas/add/">Nueva Cita</a>
+        <a class="btn btn-primary" href="/citas/add/">Nueva Cita</a>
     </div>
 
 
@@ -13,6 +13,7 @@
                 <th scope="col">Alumno </th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Hora</th>
+                <th scope="col">Modalidad</th>
                 <th scope="col">Acción</th>
             </tr>
         </thead>
@@ -24,6 +25,7 @@
                     {{cita.alumno?.alumno_nombres}}</td>
                 <td>{{cita.cita_fecha}}</td>
                 <td>{{cita.cita_hora}}</td>
+                <td>{{cita.citamodalidad?.citaModalidad_nombre}}</td>
                 <td>
                     <button (click)="updateCita(cita.cita_id|| 0)" type="button"
                         class="btn btn-warning btn-sm">Editar</button>

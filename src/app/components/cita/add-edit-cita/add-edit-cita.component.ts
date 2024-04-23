@@ -14,6 +14,7 @@ import { Cita } from '../../../interfaces/cita';
 import { CitaService } from '../../../services/cita/cita.service';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { link } from 'fs';
 
 @Component({
   selector: 'app-add-edit-cita',
@@ -96,7 +97,7 @@ export class AddEditCitaComponent {
       cita.cita_id = this.id;
       this._citaService.updateCita(this.id, cita).subscribe(() => {
         console.log('Cita Actualizada');
-        this.router.navigate(['/']);
+        this.router.navigate(['/alumnos']);
       })
     } else {
       //agregar
@@ -109,10 +110,19 @@ export class AddEditCitaComponent {
   }
 
   getCita(id: Number) {
-
+    this._citaService.getCita(id).subscribe((data: Cita) => {
+      console.log(data);
+      this.form.setValue({
+        alumno_id: data.alumno_id,
+        cita_fecha: data.cita_fecha,
+        cita_hora: data.cita_hora,
+        cita_descripcion: data.cita_descripcion,
+        citamodalidad_id: data.citaModalidad_id,
+        citatipo_id: data.citaTipo_id,
+        citaconfirmacion_id: data.citaconfirmacion ?? 0
+      })
+    })
   }
 
-  cancel() {
 
-  }
 }

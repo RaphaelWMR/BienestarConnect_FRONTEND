@@ -63,7 +63,7 @@ export class AddEditAlumnoComponent {
       alumno.alumno_id = this.id;
       this._alumnoService.updateAlumno(this.id, alumno).subscribe(() => {
         console.log('Alumno actualizado');
-        this.router.navigate(['/']);
+        this.router.navigate(['/alumnos']);
       })
     } else {
       //agregar
