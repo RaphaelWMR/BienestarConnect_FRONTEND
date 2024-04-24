@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsMo
 import { ActivatedRoute, Router } from '@angular/router';
 import { Alumno } from '../../../interfaces/alumno';
 import { AlumnoService } from '../../../services/alumno/alumno.service';
+import { GetDataAlumnoService } from '../../../services/soa/get-data-alumno.service';
+import { AlumnoSOA } from '../../../interfaces/SOA/alumnoSOA';
 
 @Component({
   selector: 'app-add-edit-alumno',
@@ -21,6 +23,7 @@ export class AddEditAlumnoComponent {
     (private router: Router,
       private fb: FormBuilder,
       private _alumnoService: AlumnoService,
+      private _getDataAlumnoService: GetDataAlumnoService,
       private aRouter: ActivatedRoute
     ) {
     this.form = this.fb.group({
@@ -89,6 +92,12 @@ export class AddEditAlumnoComponent {
         alumno_fechaNacimiento: data.alumno_fechaNacimiento,
         eap_id: data.eap_id
       })
+    })
+  }
+
+  getDataAlumno() {
+    this._getDataAlumnoService.getDataAlumno(this.form.value.alumno_codigo ?? 0).subscribe((data: AlumnoSOA) => {
+      console.log("Data: ",data);
     })
   }
 }

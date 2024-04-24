@@ -15,6 +15,19 @@
                         <form class="user" [formGroup]="form" (ngSubmit)="addAlumno()">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input formControlName="alumno_codigo" type="text"
+                                        class="form-control form-control-user" id="exampleFirstName"
+                                        placeholder="Código de estudiante">
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <button type="button" (click)="getDataAlumno()"
+                                        class="btn btn-primary btn-user btn-block">
+                                        Buscar
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input formControlName="alumno_primerApellido" type="text"
                                         class="form-control form-control-user" id="exampleFirstName"
                                         placeholder="Primer Apellido">
@@ -37,11 +50,6 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input formControlName="alumno_codigo" type="text"
-                                        class="form-control form-control-user" id="exampleFirstName"
-                                        placeholder="Código de estudiante">
-                                </div>
                                 <div class="col-sm-6">
                                     <input formControlName="alumno_telefono" type="text"
                                         class="form-control form-control-user" id="exampleLastName"
