@@ -1,3 +1,5 @@
+;
+import { NotfoundComponent } from './components/pages/notfound/notfound.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +22,9 @@ import { BsDatepickerConfig, BsDatepickerModule } from 'ngx-bootstrap/datepicker
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { SidebarComponent } from './components/partials/sidebar/sidebar.component';
+import { HomeUserComponent } from './components/user-pages/home-user/home-user.component';
+import { AddEditCitaUserComponent } from './components/user-pages/add-edit-cita-user/add-edit-cita-user.component';
+import { ListCitasUserComponent } from './components/user-pages/list-citas-user/list-citas-user.component';
 
 
 
@@ -31,7 +36,11 @@ import { SidebarComponent } from './components/partials/sidebar/sidebar.componen
     ListCitasComponent,
     AddEditCitaComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeUserComponent,
+    AddEditCitaUserComponent,
+    ListCitasUserComponent,
+    NotfoundComponent
   ],
   imports: [
     ListAlumnosComponent,
