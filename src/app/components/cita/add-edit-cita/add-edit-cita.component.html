@@ -1,59 +1,82 @@
-<div class="row mt-1">
-    <div class="col-lg-4 offset-lg-4">
-        <div class="card text-white bg-primary mb-3" style="max-inline-size: 25rem;">
-            <div class="card-header text-center">{{operacion}} Cita</div>
-            <div class="card-body">
-                <form [formGroup]="form" (ngSubmit)="addCita()">
-                    <div>
-                        <label for="inputDefault" class="form-label mt-4">Alumno</label>
-                        <select class="form-select" id="exampleSelect1" formControlName="alumno_id">
-                            <option *ngFor="let alumno of listAlumnos" value="{{alumno.alumno_id}}">
-                                {{alumno.alumno_codigo}} {{alumno.alumno_primerApellido}} {{alumno.alumno_nombres}}
-                            </option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="inputDefault" class="form-label mt-4">Fecha</label>
-                        <input formControlName="cita_fecha" type="date" class="form-control" id="start"
-                            name="trip-start" value="2024-01-01" min="2024-01-01" max="2050-12-31" />
-                    </div>
-                    <div>
-                        <label for="" class="form-label mt-4">Hora</label>
-                        <input formControlName="cita_hora" type="time" class="form-control" id="appt" name="appt"
-                            min="08:00" max="17:00" value="08:00" />
-                    </div>
-                    <div>
-                        <label for="inputDefault" class="form-label mt-4">Descripción</label>
-                        <input formControlName="cita_descripcion" type="text" class="form-control" id="input" rows="3"
-                            placeholder="">
-                    </div>
-                    <div>
-                        <label for="inputDefault" class="form-label mt-4">Modalidad</label>
-                        <select class="form-select" id="exampleSelect1" formControlName="citamodalidad_id">
-                            <option *ngFor="let modalidad of listModalidades" value="{{modalidad.citaModalidad_id}}">
-                                {{modalidad.citaModalidad_nombre}}
-                            </option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="inputDefault" class="form-label mt-4">Tipo</label>
-                        <select class="form-select" id="exampleSelect3" formControlName="citatipo_id">
-                            <option *ngFor="let tipo of listTipo" value="{{tipo.citaTipo_id}}">
-                                {{tipo.CitaTipo_nombre}}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="row mt-2 text-center">
-                        <div class="col-lg-6">
-                            <button type="submit" class="btn btn-success">Aceptar</button>
-                        </div>
-                        <div class="col-lg-6">
-                            <a class="btn btn-danger" href="/citas">Cancelar</a>
-                        </div>
-                    </div>
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-cita-image">
 
-                </form>
+                </div>
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">{{operacion}} Cita</h1>
+                        </div>
+                        <form class="user" [formGroup]="form" (ngSubmit)="addCita()">
+                            <div class="form-group">
+                                <div class="container mt-5">
+                                    <div class="row justify-content-center">
+                                        <div class="">
+                                            <label for="" class="text-center">Alumno</label>
+                                            <select class="custom-select form-control rounded"
+                                                formControlName="alumno_id">
+                                                <option *ngFor="let alumno of listAlumnos" value="{{alumno.alumno_id}}">
+                                                    {{alumno.alumno_codigo}} {{alumno.alumno_primerApellido}}
+                                                    {{alumno.alumno_nombres}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="" class="text-center">Fecha</label>
+                                    <input formControlName="cita_fecha" type="date"
+                                        class="form-control form-control-user" id="exampleFirstName"
+                                        placeholder="Fecha">
+                                </div>
 
+                                <div class="col-sm-6">
+                                    <label for="" class="text-center">Hora</label>
+                                    <input formControlName="cita_hora" type="time"
+                                        class="form-control form-control-user" id="exampleLastName" placeholder="Hora">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="text-center">Descripción</label>
+                                <input formControlName="cita_descripcion" type="text"
+                                    class="form-control form-control-user" id="" placeholder="Descripción de la cita">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="" class="text-center">Modalidad</label>
+                                    <select class="custom-select form-control rounded"
+                                        formControlName="citamodalidad_id">
+                                        <option *ngFor="let modalidad of listModalidades"
+                                            value="{{modalidad.citaModalidad_id}}">
+                                            {{modalidad.citaModalidad_nombre}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="" class="text-center">Tipo</label>
+                                    <select class="custom-select form-control rounded" formControlName="citatipo_id">
+                                        <option *ngFor="let tipo of listTipo" value="{{tipo.citaTipo_id}}">
+                                            {{tipo.CitaTipo_nombre}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                Registrar
+                            </button>
+                            <hr>
+                            <a href="/citas" class="btn btn-google btn-user btn-block">
+                                <i class="fab fa-fw"></i> Cancelar
+                            </a>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

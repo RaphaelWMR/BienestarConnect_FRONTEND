@@ -97,7 +97,7 @@ export class AddEditCitaComponent {
       cita.cita_id = this.id;
       this._citaService.updateCita(this.id, cita).subscribe(() => {
         console.log('Cita Actualizada');
-        this.router.navigate(['/alumnos']);
+        this.router.navigate(['/citas']);
       })
     } else {
       //agregar

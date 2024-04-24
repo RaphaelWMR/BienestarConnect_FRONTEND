@@ -1,38 +1,70 @@
-<div class="container">
-    <div class="tittle">
-        <h4>Citas registradas</h4>
-        <a class="btn btn-primary" href="/citas/add/">Nueva Cita</a>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Citas registradas</h1>
+    <p class="mb-4">Lista de citas registradas en la plataforma FISI Bienestar</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3  d-flex justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Citas</h6>
+            <button type="button" (click)="addCita()" class="btn btn-primary">Agregar Cita</button>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>N° Cita</th>
+                            <th>Código</th>
+                            <th>Alumno</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Modalidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>N° Cita</th>
+                            <th>Código</th>
+                            <th>Alumno</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Modalidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr *ngFor="let cita of listCitas">
+                            <td>{{cita.cita_id}}</td>
+                            <td>{{cita.alumno?.alumno_codigo}}</td>
+                            <td>{{cita.alumno?.alumno_primerApellido}} {{cita.alumno?.alumno_segundoApellido}},
+                                {{cita.alumno?.alumno_nombres}}</td>
+                            <td>{{cita.cita_fecha}}</td>
+                            <td>{{cita.cita_hora}}</td>
+                            <td>{{cita.citamodalidad?.citaModalidad_nombre}}</td>
+                            <td>
+                                <div class="">
+                                    <button (click)="updateCita(cita.cita_id|| 0)" type="button"
+                                        class="btn btn-warning btn-sm">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+
+                                    <button (click)="deleteCita(cita.cita_id!)" type="button"
+                                        class="btn btn-danger btn-sm ml-1">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
-
-    <table class="table table-hover">
-        <thead>
-            <tr class="table-dark">
-                <th scope="col">Cita</th>
-                <th scope="col">Codigo</th>
-                <th scope="col">Alumno </th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Hora</th>
-                <th scope="col">Modalidad</th>
-                <th scope="col">Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let cita of listCitas">
-                <td>{{cita.cita_id}}</td>
-                <td>{{cita.alumno?.alumno_codigo}}</td>
-                <td>{{cita.alumno?.alumno_primerApellido}} {{cita.alumno?.alumno_segundoApellido}},
-                    {{cita.alumno?.alumno_nombres}}</td>
-                <td>{{cita.cita_fecha}}</td>
-                <td>{{cita.cita_hora}}</td>
-                <td>{{cita.citamodalidad?.citaModalidad_nombre}}</td>
-                <td>
-                    <button (click)="updateCita(cita.cita_id|| 0)" type="button"
-                        class="btn btn-warning btn-sm">Editar</button>
-                    <button (click)="deleteCita(cita.cita_id!)" type="button"
-                        class="btn btn-danger btn-sm ms-2">Eliminar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
+<!-- /.container-fluid -->
