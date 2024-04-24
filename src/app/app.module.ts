@@ -25,6 +25,7 @@ import { SidebarComponent } from './components/partials/sidebar/sidebar.componen
 import { HomeUserComponent } from './components/user-pages/home-user/home-user.component';
 import { AddEditCitaUserComponent } from './components/user-pages/add-edit-cita-user/add-edit-cita-user.component';
 import { ListCitasUserComponent } from './components/user-pages/list-citas-user/list-citas-user.component';
+import { LoginComponent } from './components/login/login/login.component';
 
 
 
@@ -40,7 +41,8 @@ import { ListCitasUserComponent } from './components/user-pages/list-citas-user/
     HomeUserComponent,
     AddEditCitaUserComponent,
     ListCitasUserComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    LoginComponent
   ],
   imports: [
     ListAlumnosComponent,
