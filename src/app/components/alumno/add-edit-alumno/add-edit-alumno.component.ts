@@ -5,8 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsMo
 import { ActivatedRoute, Router } from '@angular/router';
 import { Alumno } from '../../../interfaces/alumno';
 import { AlumnoService } from '../../../services/alumno/alumno.service';
-import { GetDataAlumnoService } from '../../../services/soa/get-data-alumno.service';
-import { AlumnoSOA } from '../../../interfaces/SOA/alumnoSOA';
+import { GetDataAlumnoService } from '../../../services/webServiceAlumno/get-data-alumno.service';
+import { AlumnoWS } from '../../../interfaces/web-service-alumno/alumnoWS';
 
 @Component({
   selector: 'app-add-edit-alumno',
@@ -96,8 +96,17 @@ export class AddEditAlumnoComponent {
   }
 
   getDataAlumno() {
-    this._getDataAlumnoService.getDataAlumno(this.form.value.alumno_codigo ?? 0).subscribe((data: AlumnoSOA) => {
-      console.log("Data: ",data);
+    this._getDataAlumnoService.getDataAlumno(this.form.value.alumno_codigo ?? 0).subscribe((data: AlumnoWS) => {
+      console.log("Data: ", data);
+      this.form.setValue({
+        alumno_primerApellido: data.alumno_primerApellido,
+        alumno_segundoApellido: data.alumno_segundoApellido,
+        alumno_nombres: data.alumno_nombres,
+        alumno_dni: data.alumno_dni,
+        alumno_codigo: data.alumno_codigo,
+        alumno_telefono: null,
+        alumno_correoElectronico: data.alumno_correoElectronico,
+      })
     })
   }
 }

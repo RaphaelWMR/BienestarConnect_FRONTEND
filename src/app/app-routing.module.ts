@@ -9,6 +9,8 @@ import { ListCitasComponent } from './components/cita/list-citas/list-citas.comp
 import { AddEditCitaComponent } from './components/cita/add-edit-cita/add-edit-cita.component';
 import { NotfoundComponent } from './components/pages/notfound/notfound.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { HelpCRMComponent } from './components/pages/help-crm/help-crm.component';
+import { ChatCRMComponent } from './components/pages/chat-crm/chat-crm.component';
 
 const routes: Routes = [
   // Home
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'citas/edit/:id', component: AddEditCitaComponent },
   // User
   // Pages
+  {path: "help", component: HelpCRMComponent},
+  {path: "chat", component: ChatCRMComponent},
   { path: '**', component: NotfoundComponent },
 ];
 

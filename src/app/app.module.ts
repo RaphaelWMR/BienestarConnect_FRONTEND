@@ -26,6 +26,8 @@ import { HomeUserComponent } from './components/user-pages/home-user/home-user.c
 import { AddEditCitaUserComponent } from './components/user-pages/add-edit-cita-user/add-edit-cita-user.component';
 import { ListCitasUserComponent } from './components/user-pages/list-citas-user/list-citas-user.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { HelpCRMComponent } from './components/pages/help-crm/help-crm.component';
+import { ChatCRMComponent } from './components/pages/chat-crm/chat-crm.component';
 
 
 
@@ -42,7 +44,9 @@ import { LoginComponent } from './components/login/login/login.component';
     AddEditCitaUserComponent,
     ListCitasUserComponent,
     NotfoundComponent,
-    LoginComponent
+    LoginComponent,
+    HelpCRMComponent,
+    ChatCRMComponent
   ],
   imports: [
     ListAlumnosComponent,
