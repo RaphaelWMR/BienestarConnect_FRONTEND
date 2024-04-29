@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { SharedDataService } from '../../../shared-data/shared-data.service';
+import { Alumno } from '../../../apis/api-fisibienestar/interfaces/alumno';
+import { AlumnoService } from '../../../apis/api-fisibienestar/services/alumno/alumno.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,8 +16,11 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 export class NavbarComponent {
 
   isActive: string = ''; // To store the currently active route
-
-  constructor(private router: Router) {
+  username: string = '';
+  alumno: Alumno | undefined;
+  constructor(private router: Router,
+    private sharedDataService: SharedDataService,
+    private getAlumnoByEmailService: AlumnoService) {
 
   }
 
@@ -24,12 +30,18 @@ export class NavbarComponent {
         this.isActive = event.url;
       }
     });
+    this.getUser();
   }
-  showAlumnos() {
-    this.router.navigate(['/alumnos']);
+  getUser() {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      this.username = storedUsername;
+    } else {
+      this.sharedDataService.getUsername().subscribe((username) => {
+        this.username = username;
+        localStorage.setItem('username', this.username);
+      });
+    }
   }
 
-  showCitas() {
-    this.router.navigate(['/citas']);
-  }
 }

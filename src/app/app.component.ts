@@ -9,15 +9,21 @@ import { NavigationEnd, Router } from '@angular/router';
 export class AppComponent {
   title = 'FISI Bienestar';
   isLoginPage: boolean = false;
+  isUser: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isLoginPage = event.url === '/login' || event.url=="/"; // Ajusta aquí la ruta de tu componente de inicio de sesión
+        this.isLoginPage = event.url === '/login' || event.url == "/";
+      }
+    });
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isUser = event.url.startsWith('/user-home')
       }
     });
   }
-  
+
 
 
 }

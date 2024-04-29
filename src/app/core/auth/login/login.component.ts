@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { User } from '../../../shared/apis/api-fisibienestar/interfaces/user';
+import { SharedDataService } from '../../../shared/shared-data/shared-data.service';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,8 @@ export class LoginComponent {
   ];
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private sharedDataService: SharedDataService
   ) {
     this.form = this.fb.group({
       user: ['', Validators.required],
@@ -48,10 +50,16 @@ export class LoginComponent {
     if (user) {
       // Redirigir según el user_role
       if (user.user_role === 'admin') {
-        this.router.navigate(['/dashboard'],{ queryParams: {user_role: 'admin'}});
+        this.router.navigate(['/dashboard'], { queryParams: { user_role: 'admin' } });
       } else if (user.user_role === 'user') {
-        this.router.navigate(['/user', 'user']);
-        this.router.navigate(['/user-home'],{ queryParams: {user_role: 'user'}});
+        const navigationExtras: NavigationExtras = {
+          state: {
+            user_role: 'user',
+            user_name: username
+          }
+        };
+        this.sharedDataService.setUsername(username);
+        this.router.navigate(['/user-home'],navigationExtras);
       }
     } else {
       // Lógica para manejar credenciales inválidas (por ejemplo, mostrar un mensaje de error)

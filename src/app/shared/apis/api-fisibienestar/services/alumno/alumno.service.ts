@@ -32,6 +32,10 @@ export class AlumnoService {
     return this.http.get<Alumno>(`${this.myAppUrl}${this.myApiUrl}${id}`);
   }
 
+  getAlumnoByEmail(email: String): Observable<Alumno> {
+    return this.http.get<Alumno>(`${this.myAppUrl}${this.myApiUrl}email/${email}`);
+  }
+
   updateAlumno(id: number, alumno: Alumno): Observable<void> {
     return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}${id}`, alumno);
   }
