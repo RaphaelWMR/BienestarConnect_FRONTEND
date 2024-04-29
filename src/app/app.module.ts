@@ -25,9 +25,10 @@ import { SidebarComponent } from './shared/pages/partials/sidebar/sidebar.compon
 import { HomeUserComponent } from './core/admin/user-pages/home-user/home-user.component'; 
 import { AddEditCitaUserComponent } from './core/admin/user-pages/add-edit-cita-user/add-edit-cita-user.component'; 
 import { ListCitasUserComponent } from './core/admin/user-pages/list-citas-user/list-citas-user.component'; 
-import { LoginComponent } from './core/auth/login/login/login.component'; 
+import { LoginComponent } from './core/auth/login/login.component'; 
 import { HelpCRMComponent } from './core/admin/pages/help-crm/help-crm.component'; 
-import { ChatCRMComponent } from './core/admin/pages/chat-crm/chat-crm.component'; 
+import { ChatCRMComponent } from './core/admin/pages/chat-crm/chat-crm.component';
+import { UserHomeComponent } from './core/user/user-home/user-home.component'; 
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ChatCRMComponent } from './core/admin/pages/chat-crm/chat-crm.component
     NotfoundComponent,
     LoginComponent,
     HelpCRMComponent,
-    ChatCRMComponent
+    ChatCRMComponent,
+    UserHomeComponent
   ],
   imports: [
     ListAlumnosComponent,
