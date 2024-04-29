@@ -28,7 +28,8 @@ import { ListCitasUserComponent } from './core/admin/user-pages/list-citas-user/
 import { LoginComponent } from './core/auth/login/login.component'; 
 import { HelpCRMComponent } from './core/admin/pages/help-crm/help-crm.component'; 
 import { ChatCRMComponent } from './core/admin/pages/chat-crm/chat-crm.component';
-import { UserHomeComponent } from './core/user/user-home/user-home.component'; 
+import { UserHomeComponent } from './core/user/user-home/user-home.component';
+import { LogoutComponent } from './core/auth/logout/logout.component'; 
 
 @NgModule({
   declarations: [
@@ -46,12 +47,13 @@ import { UserHomeComponent } from './core/user/user-home/user-home.component';
     LoginComponent,
     HelpCRMComponent,
     ChatCRMComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    NavbarComponent,
+    LogoutComponent
   ],
   imports: [
     ListAlumnosComponent,
     AddEditAlumnoComponent,
-    NavbarComponent,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

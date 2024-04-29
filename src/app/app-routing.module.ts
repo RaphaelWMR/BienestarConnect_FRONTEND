@@ -12,11 +12,14 @@ import { LoginComponent } from './core/auth/login/login.component';
 import { HelpCRMComponent } from './core/admin/pages/help-crm/help-crm.component';
 import { ChatCRMComponent } from './core/admin/pages/chat-crm/chat-crm.component';
 import { UserHomeComponent } from './core/user/user-home/user-home.component';
+import { LogoutComponent } from './core/auth/logout/logout.component';
 
 const routes: Routes = [
   // Home
   { path: '', component: LoginComponent },
+  // Auth
   { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
   //Admin
   { path: 'dashboard', component: DashboardComponent },
   // Alumnos
