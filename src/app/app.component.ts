@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'FISI Bienestar';
   isLoginPage: boolean = false;
   isUser: boolean = false;
+  isReady: boolean = false; // Nuevo estado para controlar la carga completa
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
@@ -22,6 +23,8 @@ export class AppComponent {
           event.url.startsWith('/user-addCita') ||
           event.url.startsWith('/user-citas') ||
           event.url.startsWith('/user-disponibilidad');
+        // Establecer isReady como true cuando las condiciones estén evaluadas
+        this.isReady = true;
       }
     });
   }
