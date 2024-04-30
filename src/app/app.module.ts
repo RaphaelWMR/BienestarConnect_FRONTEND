@@ -14,7 +14,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { NavbarComponent } from './shared/pages/partials/navbar/navbar.component'; 
 import { AddEditAlumnoComponent } from './core/admin/alumno/add-edit-alumno/add-edit-alumno.component'; 
 import { ListAlumnosComponent } from './core/admin/alumno/list-alumnos/list-alumnos.component'; 
-import { ProgressBarComponent } from './shared/ui/progress-bar/progress-bar.component';
 import { DashboardComponent } from './core/admin/pages/dashboard/dashboard.component'; 
 import { ListCitasComponent } from './core/admin/cita/list-citas/list-citas.component'; 
 import { AddEditCitaComponent } from './core/admin/cita/add-edit-cita/add-edit-cita.component'; 
@@ -30,12 +29,14 @@ import { HelpCRMComponent } from './core/admin/pages/help-crm/help-crm.component
 import { ChatCRMComponent } from './core/admin/pages/chat-crm/chat-crm.component';
 import { UserHomeComponent } from './core/user/user-home/user-home.component';
 import { LogoutComponent } from './core/auth/logout/logout.component';
-import { ChatbotComponentComponent } from './shared/pages/chatbot/chatbot-component/chatbot-component.component'; 
+import { ChatbotComponentComponent } from './shared/pages/chatbot/chatbot-component/chatbot-component.component';
+import { UserCitasComponent } from './core/user/user-citas/user-citas.component';
+import { UserAddCitaComponent } from './core/user/user-add-cita/user-add-cita.component';
+import { UserCheckAvailabilityComponent } from './core/user/user-check-availability/user-check-availability.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProgressBarComponent,
     DashboardComponent,
     ListCitasComponent,
     AddEditCitaComponent,
@@ -51,7 +52,10 @@ import { ChatbotComponentComponent } from './shared/pages/chatbot/chatbot-compon
     UserHomeComponent,
     NavbarComponent,
     LogoutComponent,
-    ChatbotComponentComponent
+    ChatbotComponentComponent,
+    UserCitasComponent,
+    UserAddCitaComponent,
+    UserCheckAvailabilityComponent
   ],
   imports: [
     ListAlumnosComponent,

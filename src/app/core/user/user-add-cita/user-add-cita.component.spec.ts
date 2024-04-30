@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProgressBarComponent } from './progress-bar.component';
+import { UserAddCitaComponent } from './user-add-cita.component';
 
-describe('ProgressBarComponent', () => {
-  let component: ProgressBarComponent;
-  let fixture: ComponentFixture<ProgressBarComponent>;
+describe('UserAddCitaComponent', () => {
+  let component: UserAddCitaComponent;
+  let fixture: ComponentFixture<UserAddCitaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProgressBarComponent]
+      declarations: [UserAddCitaComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ProgressBarComponent);
+    fixture = TestBed.createComponent(UserAddCitaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

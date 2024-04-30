@@ -33,9 +33,7 @@ export class NavbarComponent implements OnInit {
   getUser() {
     if (typeof localStorage !== 'undefined') {
       const storedUsername = localStorage.getItem('username');
-      if (storedUsername == 'karla.sanchez') {
-        this.username = "karla.sanchez";
-      } else {
+      if (storedUsername != 'karla.sanchez') {
         if (storedUsername) {
           this.username = storedUsername;
         } else {
@@ -43,16 +41,14 @@ export class NavbarComponent implements OnInit {
             this.username = username;
           });
         }
+      } else {
+        this.username = storedUsername;
       }
       localStorage.setItem('username', this.username);
     } else {
-      // Si localStorage no está disponible (por ejemplo, durante SSR),
-      // podrías manejar este escenario de manera alternativa.
-      // Por ejemplo, podrías obtener el nombre de usuario solo cuando
-      // localStorage está disponible, o usar una estrategia diferente
-      // de almacenamiento en función de tus necesidades.
       console.warn('localStorage is not available. Username cannot be retrieved.');
     }
   }
+
 
 }

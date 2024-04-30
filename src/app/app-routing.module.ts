@@ -14,14 +14,17 @@ import { ChatCRMComponent } from './core/admin/pages/chat-crm/chat-crm.component
 import { UserHomeComponent } from './core/user/user-home/user-home.component';
 import { LogoutComponent } from './core/auth/logout/logout.component';
 import { ChatbotComponentComponent } from './shared/pages/chatbot/chatbot-component/chatbot-component.component';
+import { UserCitasComponent } from './core/user/user-citas/user-citas.component';
+import { UserCheckAvailabilityComponent } from './core/user/user-check-availability/user-check-availability.component';
+import { UserAddCitaComponent } from './core/user/user-add-cita/user-add-cita.component';
 
 const routes: Routes = [
   // Home
   { path: '', component: LoginComponent },
-  // Auth
+  // Auth *************************************************************************
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
-  //Admin
+  //Admin *************************************************************************
   { path: 'dashboard', component: DashboardComponent },
   // Alumnos
   { path: 'alumnos', component: ListAlumnosComponent },
@@ -31,9 +34,12 @@ const routes: Routes = [
   { path: 'citas', component: ListCitasComponent },
   { path: 'citas/add', component: AddEditCitaComponent },
   { path: 'citas/edit/:id', component: AddEditCitaComponent },
-  // User
+  // User *************************************************************************
   { path: 'user-home', component: UserHomeComponent },
-  // Pages
+  { path: 'user-addCita', component: UserAddCitaComponent},
+  { path: 'user-citas', component: UserCitasComponent },
+  { path: 'user-disponibilidad', component: UserCheckAvailabilityComponent },
+  // Pages ************************************************************************
   { path: "help", component: HelpCRMComponent },
   { path: "chatbot", component: ChatbotComponentComponent },
   { path: "chat", component: ChatCRMComponent },
