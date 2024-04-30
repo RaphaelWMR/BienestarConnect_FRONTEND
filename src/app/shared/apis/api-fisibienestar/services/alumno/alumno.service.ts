@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, retry } from 'rxjs';
 import { Alumno } from '../../interfaces/alumno';
-import { environment } from '../../../../../../environments/environment'; 
+import { environment } from '../../../../../../environments/environment';
 
 
 @Injectable({
@@ -30,6 +30,11 @@ export class AlumnoService {
 
   getAlumno(id: Number): Observable<Alumno> {
     return this.http.get<Alumno>(`${this.myAppUrl}${this.myApiUrl}${id}`);
+  }
+
+
+  getAlumnoByUsername(user: String): Observable<Alumno> {
+    return this.http.get<Alumno>(`${this.myAppUrl}${this.myApiUrl}email/${user}`);
   }
 
   getAlumnoByEmail(email: String): Observable<Alumno> {
