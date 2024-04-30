@@ -30,14 +30,27 @@ export class UserCitasComponent implements OnInit {
     }
   ];
   constructor(private _citaService: CitaService) {
-
+    this.getListCitas();
   }
   ngOnInit(): void {
     // ...
   }
 
-  getListCitas(){
-    
+  getListCitas() {
+    this._citaService.getListCitasByAlumno(7).subscribe((data: any) => {
+      if (Array.isArray(data)) {
+        this.listCitas = data;
+      } else if (data instanceof Object) {
+        // Si data es un solo objeto, podemos convertirlo en un array de un solo elemento
+        this.listCitas = [data];
+      } else {
+        // Manejar otros casos según sea necesario
+        console.error('Unexpected data format:', data);
+      }
+      console.log(this.listCitas);
+    }, error => {
+      console.error('Error fetching citas:', error);
+    });
   }
 
   deleteCita(id: number) {

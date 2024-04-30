@@ -20,6 +20,10 @@ export class CitaService {
     return this.http.get<Cita[]>(`${this.myAppUrl}${this.myApiUrl}`);
   }
 
+  getListCitasByAlumno(id: number): Observable<Cita[]> {
+    return this.http.get<Cita[]>(`${this.myAppUrl}${this.myApiUrl}alumno/${id}`);
+  }
+
   deleteCita(id: number): Observable<void> {
     return this.http.delete<void>(`${this.myAppUrl}${this.myApiUrl}${id}`);
   }
