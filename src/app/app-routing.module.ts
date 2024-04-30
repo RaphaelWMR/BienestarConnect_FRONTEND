@@ -13,6 +13,7 @@ import { HelpCRMComponent } from './core/admin/pages/help-crm/help-crm.component
 import { ChatCRMComponent } from './core/admin/pages/chat-crm/chat-crm.component';
 import { UserHomeComponent } from './core/user/user-home/user-home.component';
 import { LogoutComponent } from './core/auth/logout/logout.component';
+import { ChatbotComponentComponent } from './shared/pages/chatbot/chatbot-component/chatbot-component.component';
 
 const routes: Routes = [
   // Home
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'user-home', component: UserHomeComponent },
   // Pages
   { path: "help", component: HelpCRMComponent },
+  { path: "chatbot", component: ChatbotComponentComponent },
   { path: "chat", component: ChatCRMComponent },
   { path: '**', component: NotfoundComponent },
 ];
