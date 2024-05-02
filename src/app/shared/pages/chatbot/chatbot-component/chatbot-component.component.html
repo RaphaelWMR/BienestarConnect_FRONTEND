@@ -1,13 +1,38 @@
-<!-- Begin Page Content -->
-<div class="container-fluid">
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <iframe id="inlineFrameExample" title="Inline Frame Example" width="100%" height="700"
-            src="http://localhost:5001/">
-        </iframe>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="chat">
+                <div class="card">
+                    <div class="card-header msg_head">
+                        <div class="d-flex bd-highlight">
+                            <div class="img_cont">
+                                <img src="assets/favicon.ico" class="rounded-circle user_img" height="50">
+                                <span class="online_icon"></span>
+                            </div>
+                            <div class="user_info">
+                                <span>FISI Bienestar ChatBot</span>
+                                <p>24/7 a tu disposición</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="messageFormeight" class="card-body msg_card_body">
+                        <div *ngFor="let message of chatMessages" [ngClass]="{'d-flex justify-content-end mb-4': message.sender === 'user', 'd-flex justify-content-start mb-4': message.sender === 'bot'}">
+                            <div class="msg_cotainer" *ngIf="message.sender === 'bot'">{{ message.content }}</div>
+                            <div class="msg_cotainer_send" *ngIf="message.sender === 'user'">{{ message.content }}</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <form (ngSubmit)="sendMessage(userInput.value); userInput.value = ''" #messageForm="ngForm" class="input-group">
+                            <input type="text" #userInput name="user_input" placeholder="Escriba su consulta"
+                                autocomplete="off" class="form-control type_msg" required>
+                            <div class="input-group-append">
+                                <button type="submit" class="input-group-text send_btn"><i
+                                        class="fas fa-location-arrow"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
-<!-- /.container-fluid -->
