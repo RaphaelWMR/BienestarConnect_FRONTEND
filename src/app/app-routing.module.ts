@@ -17,6 +17,7 @@ import { ChatbotComponentComponent } from './shared/pages/chatbot/chatbot-compon
 import { UserCitasComponent } from './core/user/user-citas/user-citas.component';
 import { UserCheckAvailabilityComponent } from './core/user/user-check-availability/user-check-availability.component';
 import { UserAddCitaComponent } from './core/user/user-add-cita/user-add-cita.component';
+import { UserChatbotComponent } from './core/user/user-chatbot/user-chatbot.component';
 
 const routes: Routes = [
   // Home
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'user-addCita', component: UserAddCitaComponent},
   { path: 'user-citas', component: UserCitasComponent },
   { path: 'user-disponibilidad', component: UserCheckAvailabilityComponent },
+  { path: 'user-chatbot', component: UserChatbotComponent },
   // Pages ************************************************************************
   { path: "help", component: HelpCRMComponent },
   { path: "chatbot", component: ChatbotComponentComponent },

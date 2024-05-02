@@ -36,6 +36,7 @@ import { ChatbotComponentComponent } from './shared/pages/chatbot/chatbot-compon
 import { UserCitasComponent } from './core/user/user-citas/user-citas.component';
 import { UserAddCitaComponent } from './core/user/user-add-cita/user-add-cita.component';
 import { UserCheckAvailabilityComponent } from './core/user/user-check-availability/user-check-availability.component';
+import { UserChatbotComponent } from './core/user/user-chatbot/user-chatbot.component';
 
 
 
@@ -61,7 +62,8 @@ import { UserCheckAvailabilityComponent } from './core/user/user-check-availabil
     ChatbotComponentComponent,
     UserCitasComponent,
     UserAddCitaComponent,
-    UserCheckAvailabilityComponent
+    UserCheckAvailabilityComponent,
+    UserChatbotComponent
   ],
   imports: [
     ListAlumnosComponent,

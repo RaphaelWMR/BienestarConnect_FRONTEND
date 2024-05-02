@@ -21,7 +21,6 @@ export class ChatbotService {
   sendMessage(userInput: string): Observable<any> {
     const data = { user: userInput };
     const url = `${this.myAppUrl}${this.myApiUrl}`;
-    console.log(url);
     return this.http.post<any>(url, data);
   }
 

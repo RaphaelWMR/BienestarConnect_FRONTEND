@@ -22,6 +22,7 @@ export class AppComponent {
         this.isUser = event.url.startsWith('/user-home') ||
           event.url.startsWith('/user-addCita') ||
           event.url.startsWith('/user-citas') ||
+          event.url.startsWith('/user-chatbot') ||
           event.url.startsWith('/user-disponibilidad');
         // Establecer isReady como true cuando las condiciones estén evaluadas
         this.isReady = true;
