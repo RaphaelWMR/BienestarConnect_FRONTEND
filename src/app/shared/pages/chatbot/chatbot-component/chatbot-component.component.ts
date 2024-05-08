@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { ChatbotService } from '../../../apis/service-chatbot/chatbot.service';
+import { Message } from '../../../apis/service-chatbot/interfaces/message';
 
-interface Message {
-  content: string;
-  sender: 'user' | 'bot'; // Indicates who sent the message
-}
+
 @Component({
   selector: 'app-chatbot-component',
   templateUrl: './chatbot-component.component.html',
