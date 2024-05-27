@@ -13,9 +13,10 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="/dashboard">
+        <button class="nav-link" (click)="navigate('dashboard')">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Dashboard</span>
+        </button>
     </li>
 
     <!-- Divider -->
@@ -36,7 +37,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Acciones con Alumnos:</h6>
-                <a class="collapse-item" href="/alumnos">Lista de Alumnos</a>
+                <a class="collapse-item" (click)="navigate('alumnos')">Lista de Alumnos</a>
             </div>
         </div>
     </li>
