@@ -1,13 +1,13 @@
-
 import { Component, NgModule } from '@angular/core';
 import { Alumno } from '../../../../shared/apis/api-fisibienestar/interfaces/alumno';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AlumnoService } from '../../../../shared/apis/api-fisibienestar/services/alumno/alumno.service';
+import { ProgressBarComponent } from '../../../../shared/pages/partials/progress-bar/progress-bar.component';
 @Component({
   selector: 'app-list-alumnos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ProgressBarComponent],
   templateUrl: './list-alumnos.component.html',
   styleUrl: './list-alumnos.component.css'
 })

@@ -38,9 +38,6 @@ import { UserAddCitaComponent } from './core/user/user-add-cita/user-add-cita.co
 import { UserCheckAvailabilityComponent } from './core/user/user-check-availability/user-check-availability.component';
 import { UserChatbotComponent } from './core/user/user-chatbot/user-chatbot.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
