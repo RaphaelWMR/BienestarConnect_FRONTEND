@@ -26,6 +26,10 @@ export class SidebarComponent {
         this.router.navigate(['/alumnos']);
         break;
       }
+      case "citas": {
+        this.router.navigate(['/citas']);
+        break;
+      }
     }
   }
 }
