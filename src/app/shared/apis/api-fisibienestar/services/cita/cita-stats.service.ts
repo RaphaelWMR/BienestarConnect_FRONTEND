@@ -21,4 +21,7 @@ export class CitaStatsService {
   getCitasCountModalidad(): Observable<number> {
     return this.http.get<number>(`${this.myAppUrl}${'api/citas/countmodalidad'}`);
   }
+  getCitasCountTipo(): Observable<number> {
+    return this.http.get<number>(`${this.myAppUrl}${'api/citas/counttipo'}`);
+  }
 }

@@ -21,6 +21,8 @@ export class DashboardComponent  {
   porcentajeObservados: number = 0;
   cantidadVirtual: number = 0;
   cantidadPresencial: number = 0;
+  cantidadADM: number = 0;
+  cantidadPSC: number = 0;
   constructor(private _citaStats: CitaStatsService, private _alumnoStats: AlumnoStatsService) { }
 
   ngOnInit(): void {
@@ -28,6 +30,7 @@ export class DashboardComponent  {
     this.getPorcentajeCitasConfirmadas();
     this.getPorcentajeObservados();
     this.getCantidadModalidades();
+    this.getCantidadTipo();
   }
 
 
@@ -58,7 +61,14 @@ export class DashboardComponent  {
       this.cantidadPresencial = data.presencial;
       this.createModalidadPieChart();
     });
-   
+  }
+
+  getCantidadTipo() {
+    this._citaStats.getCitasCountTipo().subscribe((data: any) => {
+      this.cantidadADM = data.adm;
+      this.cantidadPSC = data.psico;
+      this.createTipoPieChart();
+    });
   }
 
   // Pie Charts
@@ -129,7 +139,7 @@ export class DashboardComponent  {
           data: {
             labels: ["Asesoría Piscopedagógica", "Orientación Académico - Administrativa"],
             datasets: [{
-              data: [7, 3],
+              data: [this.cantidadPSC, this.cantidadADM],
               backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
               hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
               hoverBorderColor: "rgba(234, 236, 244, 1)",
