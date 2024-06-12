@@ -14,7 +14,7 @@ export class AuthService {
     this.myAppUrl = `${environment.endpoint}auth`;
   }
   login(user: any) {
-    return this.http.post<any>(`${this.myAppUrl}/login`, user).subscribe(
+    return this.http.post<any>(`${this.myAppUrl}/login/`, user).subscribe(
       res => {
         localStorage.setItem('token', res.token);
         this.router.navigate(['/dashboard']); // O cualquier otra ruta

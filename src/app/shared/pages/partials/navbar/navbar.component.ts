@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { SharedDataService } from '../../../shared-data/shared-data.service';
 import { Alumno } from '../../../apis/api-fisibienestar/interfaces/alumno';
 import { AlumnoService } from '../../../apis/api-fisibienestar/services/alumno/alumno.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +19,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private router: Router,
     private sharedDataService: SharedDataService,
-    private getAlumnoByEmailService: AlumnoService
+    private getAlumnoByEmailService: AlumnoService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -48,6 +50,9 @@ export class NavbarComponent implements OnInit {
     } else {
       console.warn('localStorage is not available. Username cannot be retrieved.');
     }
+  }
+  logout() {
+    this.authService.logout();
   }
 
 
