@@ -23,7 +23,7 @@ const routes: Routes = [
   // Home
   { path: '', component: LoginComponent },
   // Auth *************************************************************************
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent  },
   { path: 'logout', component: LogoutComponent },
   //Admin *************************************************************************
   { path: 'dashboard', component: DashboardComponent },

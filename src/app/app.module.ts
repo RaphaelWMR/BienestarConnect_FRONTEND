@@ -38,6 +38,11 @@ import { UserAddCitaComponent } from './core/user/user-add-cita/user-add-cita.co
 import { UserCheckAvailabilityComponent } from './core/user/user-check-availability/user-check-availability.component';
 import { UserChatbotComponent } from './core/user/user-chatbot/user-chatbot.component';
 import { ProgressBarComponent } from "./shared/pages/partials/progress-bar/progress-bar.component";
+import { JwtModule } from '@auth0/angular-jwt'; // Importar JwtModule
+
+export function tokenGetter() {
+    return localStorage.getItem('token');
+}
 
 @NgModule({
     declarations: [
@@ -59,7 +64,8 @@ import { ProgressBarComponent } from "./shared/pages/partials/progress-bar/progr
         UserCitasComponent,
         UserAddCitaComponent,
         UserCheckAvailabilityComponent,
-        UserChatbotComponent
+        UserChatbotComponent,
+
     ],
     exports: [],
     providers: [
@@ -82,7 +88,14 @@ import { ProgressBarComponent } from "./shared/pages/partials/progress-bar/progr
             positionClass: 'toast-bottom-right'
         }), // ToastrModule added
         FormsModule,
-        ProgressBarComponent
+        ProgressBarComponent,
+        JwtModule.forRoot({ // Configurar JwtModule
+            config: {
+                tokenGetter: tokenGetter,
+                allowedDomains: ['localhost:5000'], // Cambia esto a tu dominio permitido
+                disallowedRoutes: ['http://localhost:5000/auth/login'] // Cambia esto a tus rutas no permitidas
+            }
+        })
     ]
 })
 export class AppModule {

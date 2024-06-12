@@ -11,7 +11,7 @@ export class AuthService {
   private myAppUrl: string;
 
   constructor(private http: HttpClient, private router: Router, private jwtHelper: JwtHelperService) {
-    this.myAppUrl = environment.endpoint;
+    this.myAppUrl = `${environment.endpoint}auth`;
   }
   login(user: any) {
     return this.http.post<any>(`${this.myAppUrl}/login`, user).subscribe(
