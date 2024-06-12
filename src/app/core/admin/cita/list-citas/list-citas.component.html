@@ -1,5 +1,6 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!loading">
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Citas registradas</h1>

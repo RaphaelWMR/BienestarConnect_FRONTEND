@@ -37,53 +37,53 @@ import { UserCitasComponent } from './core/user/user-citas/user-citas.component'
 import { UserAddCitaComponent } from './core/user/user-add-cita/user-add-cita.component';
 import { UserCheckAvailabilityComponent } from './core/user/user-check-availability/user-check-availability.component';
 import { UserChatbotComponent } from './core/user/user-chatbot/user-chatbot.component';
+import { ProgressBarComponent } from "./shared/pages/partials/progress-bar/progress-bar.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    ListCitasComponent,
-    AddEditCitaComponent,
-    FooterComponent,
-    SidebarComponent,
-    HomeUserComponent,
-    AddEditCitaUserComponent,
-    ListCitasUserComponent,
-    NotfoundComponent,
-    LoginComponent,
-    HelpCRMComponent,
-    ChatCRMComponent,
-    UserHomeComponent,
-    NavbarComponent,
-    LogoutComponent,
-    ChatbotComponentComponent,
-    UserCitasComponent,
-    UserAddCitaComponent,
-    UserCheckAvailabilityComponent,
-    UserChatbotComponent
-  ],
-  imports: [
-    ListAlumnosComponent,
-    CommonModule,
-    AddEditAlumnoComponent,
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule, // required animations module,
-    ToastrModule.forRoot({
-      timeOut: 10000,
-      positionClass: 'toast-bottom-right'
-    }), // ToastrModule added
-    FormsModule,
-  ],
-  exports: [
-
-  ],
-  providers: [
-    provideClientHydration(),
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AddEditCitaComponent,
+        FooterComponent,
+        SidebarComponent,
+        HomeUserComponent,
+        AddEditCitaUserComponent,
+        ListCitasUserComponent,
+        NotfoundComponent,
+        LoginComponent,
+        HelpCRMComponent,
+        ChatCRMComponent,
+        UserHomeComponent,
+        NavbarComponent,
+        LogoutComponent,
+        ChatbotComponentComponent,
+        UserCitasComponent,
+        UserAddCitaComponent,
+        UserCheckAvailabilityComponent,
+        UserChatbotComponent
+    ],
+    exports: [],
+    providers: [
+        provideClientHydration(),
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        ListAlumnosComponent,
+        ListCitasComponent,
+        DashboardComponent,
+        CommonModule,
+        AddEditAlumnoComponent,
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule, // required animations module,
+        ToastrModule.forRoot({
+            timeOut: 10000,
+            positionClass: 'toast-bottom-right'
+        }), // ToastrModule added
+        FormsModule,
+        ProgressBarComponent
+    ]
 })
 export class AppModule {
 

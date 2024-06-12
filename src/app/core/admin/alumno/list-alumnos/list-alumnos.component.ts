@@ -7,14 +7,14 @@ import { ProgressBarComponent } from '../../../../shared/pages/partials/progress
 @Component({
   selector: 'app-list-alumnos',
   standalone: true,
-  imports: [CommonModule,ProgressBarComponent],
+  imports: [CommonModule, ProgressBarComponent],
   templateUrl: './list-alumnos.component.html',
   styleUrl: './list-alumnos.component.css'
 })
 export class ListAlumnosComponent {
-  listAlumnos: Alumno[] = [
-
-  ]
+  listAlumnos: Alumno[] = []
+  //Loading bar
+  loading: boolean = false;
   constructor(private router: Router, private _alumnoService: AlumnoService) {
 
   }
@@ -30,9 +30,13 @@ export class ListAlumnosComponent {
   }
 
   getListAlumnos() {
+    this.loading = true;
+
     this._alumnoService.getListAlumnos().subscribe((data: Alumno[]) => {
       this.listAlumnos = data;
+      this.loading = false;
     });
+
   }
 
   deleteAlumno(id: number) {

@@ -1,6 +1,6 @@
-<app-progress-bar></app-progress-bar>
+<app-progress-bar *ngIf="loading"></app-progress-bar>
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div *ngIf="!loading" class="container-fluid">
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Alumnos registrados</h1>
