@@ -18,4 +18,7 @@ export class CitaStatsService {
   getCitasConfPorc(): Observable<number> {
     return this.http.get<number>(`${this.myAppUrl}${'api/citas/porConf'}`);
   }
+  getCitasCountModalidad(): Observable<number> {
+    return this.http.get<number>(`${this.myAppUrl}${'api/citas/countmodalidad'}`);
+  }
 }

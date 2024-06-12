@@ -3,6 +3,7 @@ import { CitaStatsService } from '../../../../shared/apis/api-fisibienestar/serv
 import { CommonModule } from '@angular/common';
 import { ProgressBarComponent } from '../../../../shared/pages/partials/progress-bar/progress-bar.component';
 import { Chart, registerables } from 'chart.js'; // Asegúrate de importar registerables
+import { AlumnoStatsService } from '../../../../shared/apis/api-fisibienestar/services/alumno/alumno-stats.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,30 +12,26 @@ import { Chart, registerables } from 'chart.js'; // Asegúrate de importar regis
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements AfterViewInit {
+export class DashboardComponent  {
 
   // Loading bar
   loading: boolean = false;
   cantidadCitas: number = 0;
   porcentajeConfirmadas: number = 0;
-
-  constructor(private _citaStats: CitaStatsService) { }
+  porcentajeObservados: number = 0;
+  cantidadVirtual: number = 0;
+  cantidadPresencial: number = 0;
+  constructor(private _citaStats: CitaStatsService, private _alumnoStats: AlumnoStatsService) { }
 
   ngOnInit(): void {
     this.getCantidadCitas();
-    this.getCantidadAlumnos();
-    this.getCantidadAlumnosObs();
     this.getPorcentajeCitasConfirmadas();
+    this.getPorcentajeObservados();
+    this.getCantidadModalidades();
   }
 
-  getCantidadAlumnos() {
-    // Implementación del método
-  }
 
-  getCantidadAlumnosObs() {
-    // Implementación del método
-  }
-
+  // Agregacion
   getPorcentajeCitasConfirmadas() {
     this.loading = true;
     this._citaStats.getCitasConfPorc().subscribe((data: any) => {
@@ -49,10 +46,22 @@ export class DashboardComponent implements AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
-    this.createModalidadPieChart();
-    this.createTipoPieChart();
+  getPorcentajeObservados() {
+    this._alumnoStats.getPorcentajeObservados().subscribe((data: any) => {
+      this.porcentajeObservados = data.porcentaje;
+    });
   }
+
+  getCantidadModalidades() {
+    this._citaStats.getCitasCountModalidad().subscribe((data: any) => {
+      this.cantidadVirtual = data.virtual;
+      this.cantidadPresencial = data.presencial;
+      this.createModalidadPieChart();
+    });
+   
+  }
+
+  // Pie Charts
 
   createModalidadPieChart(): void {
     Chart.register(...registerables); // Registra todos los componentes necesarios
@@ -66,7 +75,7 @@ export class DashboardComponent implements AfterViewInit {
           data: {
             labels: ["Presencial", "Virtual"],
             datasets: [{
-              data: [6, 4],
+              data: [this.cantidadPresencial, this.cantidadVirtual],
               backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
               hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
               hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -85,7 +94,7 @@ export class DashboardComponent implements AfterViewInit {
                 displayColors: true,
                 caretPadding: 10,
                 callbacks: {
-                  label: function(context) {
+                  label: function (context) {
                     let label = context.label || '';
                     let value = context.raw || 0;
                     return `${label}: ${value}`;
@@ -139,7 +148,7 @@ export class DashboardComponent implements AfterViewInit {
                 displayColors: true,
                 caretPadding: 10,
                 callbacks: {
-                  label: function(context) {
+                  label: function (context) {
                     let label = context.label || '';
                     let value = context.raw || 0;
                     return `${label}: ${value}`;
