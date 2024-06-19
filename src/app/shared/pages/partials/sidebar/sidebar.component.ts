@@ -32,6 +32,7 @@ export class SidebarComponent {
       }
       case "chatbot":{
         this.router.navigate(['/chatbot']);
+        break;
       }
     }
   }
