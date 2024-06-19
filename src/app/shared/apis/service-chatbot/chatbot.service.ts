@@ -13,7 +13,7 @@ export class ChatbotService {
 
   constructor(private http: HttpClient) {
 
-    this.myAppUrl = 'http://localhost:5001/';
+    this.myAppUrl = 'https://fisibienestarchatbot.onrender.com/';
     this.myApiUrl = 'pregunta';
 
   }
