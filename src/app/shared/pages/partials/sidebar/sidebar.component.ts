@@ -30,6 +30,9 @@ export class SidebarComponent {
         this.router.navigate(['/citas']);
         break;
       }
+      case "chatbot":{
+        this.router.navigate(['/chatbot']);
+      }
     }
   }
 }
